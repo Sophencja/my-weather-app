@@ -20,6 +20,7 @@ a {
 }
 a:hover {
   color: grey;
+  transition: 200ms;
 }
 
 footer {
@@ -56,6 +57,7 @@ main {
 .btn-secondary:hover {
   background-color: rgba(171, 140, 184, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
+  transition: 200ms;
 }
 .location {
   margin-top: 50px;
@@ -68,6 +70,7 @@ main {
   color: white;
   background-color: rgba(171, 140, 184, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
+  transition: 200ms;
 }
 
 .city,
