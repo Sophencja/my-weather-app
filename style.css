@@ -114,7 +114,8 @@ main {
   margin-bottom: 18px;
   padding: 0 5px;
 }
-.netlify-link {
+.netlify-link,
+.github-link {
   font-size: 14px;
   font-weight: 700;
 }
