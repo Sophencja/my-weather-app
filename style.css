@@ -111,9 +111,14 @@ main {
 .forecast {
   font-size: 15px;
   margin-top: 60px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   padding: 0 5px;
 }
+.netlify-link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
 @media (min-width: 280px) {
   main {
     width: 95%;
