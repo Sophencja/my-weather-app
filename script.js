@@ -86,7 +86,7 @@ function citySearch(city) {
   axios.get(apiUrl).then(currentWeather);
 }
 
-citySearch("Cracow");
+citySearch("Warsaw");
 
 //homework5 bonus point
 
