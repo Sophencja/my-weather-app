@@ -10,3 +10,6 @@ Project is still in progress.
 Languages:
 - HTML5 / CSS3
 - JavaScript ES6
+
+Credits:
+<div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
