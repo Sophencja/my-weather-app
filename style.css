@@ -9,6 +9,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 p {
   text-align: center;
 }
@@ -18,6 +19,7 @@ a {
   color: white;
   font-size: 20px;
 }
+
 a:hover {
   color: grey;
   transition: 200ms;
@@ -42,23 +44,28 @@ main {
   font-weight: 900;
   font-size: 18px;
 }
+
 .form-control,
 .btn-secondary {
   margin-top: 50px;
   margin-left: 15vw;
 }
+
 .form-control {
   background-color: rgba(255, 255, 255, 0.8);
 }
+
 .btn-secondary {
   background-color: rgba(125, 110, 132, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
 }
+
 .btn-secondary:hover {
   background-color: rgba(171, 140, 184, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
   transition: 200ms;
 }
+
 .location {
   margin-top: 50px;
   margin-left: 5px;
@@ -66,6 +73,7 @@ main {
   background-color: rgba(125, 110, 132, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
 }
+
 .location:hover {
   color: white;
   background-color: rgba(171, 140, 184, 0.6);
@@ -77,20 +85,24 @@ main {
 .actual-weather {
   margin-top: 50px;
 }
+
 .city {
   font-size: 17px;
   line-height: 10px;
 }
+
 .warsaw {
   font-size: 27px;
   margin-bottom: 30px;
   margin-top: 5px;
 }
+
 .actual-weather {
   text-align: center;
   line-height: 17px;
   font-size: 27px;
 }
+
 .sunny {
   font-size: 20px;
 }
@@ -101,19 +113,23 @@ main {
   line-height: 5px;
   min-width: 50px;
 }
+
 .details p {
   text-align: left;
   margin-left: 40px;
 }
+
 .weekly-forecast {
   margin: 0 auto;
 }
+
 .forecast {
   font-size: 15px;
   margin-top: 60px;
   margin-bottom: 18px;
   padding: 0 5px;
 }
+
 .netlify-link,
 .github-link {
   font-size: 14px;
@@ -139,12 +155,14 @@ main {
     margin-left: 2px;
   }
 }
+
 @media (min-width: 560px) {
   .form-control,
   .btn-secondary {
     margin-left: 20vw;
   }
 }
+
 @media (orientation: landscape) {
   main {
     width: 95%;
@@ -177,6 +195,7 @@ main {
     margin: 350px 0 450px;
   }
 }
+
 @media (min-width: 1300px) {
   .details p {
     margin-left: 90px;

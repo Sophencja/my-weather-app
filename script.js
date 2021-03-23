@@ -1,3 +1,5 @@
+//current date, month and time
+
 function dateTime(time) {
   let hours = time.getHours();
   if (hours < 10) {
@@ -35,9 +37,7 @@ let time = new Date();
 
 weatherDetails.innerHTML = dateTime(time);
 
-//homework5
-
-//searching
+//search engine
 
 function searchForCity(event) {
   event.preventDefault();
@@ -47,7 +47,7 @@ function searchForCity(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchForCity);
 
-//currentWeather
+//currentWeather and temperature details
 
 function currentWeather(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -88,7 +88,7 @@ function citySearch(city) {
 
 citySearch("Warsaw");
 
-//homework5 bonus point
+//current location button
 
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -105,7 +105,7 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-button");
 button.addEventListener("click", getCurrentPosition);
 
-//!!!bonus not for the homework!!! :) City buttons
+//Cities current weather
 
 //New York
 function showPositionNewYork(position) {
