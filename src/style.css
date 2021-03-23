@@ -88,7 +88,7 @@ main {
 
 .city {
   font-size: 17px;
-  line-height: 15px;
+  line-height: 13px;
 }
 
 .warsaw {
@@ -120,8 +120,8 @@ main {
 }
 
 .img-icon {
-  width: 14px;
-  height: 12px;
+  width: 12px;
+  height: 10px;
 }
 
 .weekly-forecast {
