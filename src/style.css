@@ -190,7 +190,8 @@ li {
     margin-left: -20px;
   }
   .forecast {
-  font-size: 15px;
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 560px) {
@@ -208,9 +209,11 @@ li {
     margin: 350px 0 450px;
     background-position: center;
   }
+
   li {
     font-size: 13px;
   }
+
   .details p {
     margin-left: 15px;
   }
@@ -263,5 +266,6 @@ li {
     margin-left: 90px;
   }
   .forecast {
-  font-size: 15px;
+    font-size: 15px;
+  }
 }
