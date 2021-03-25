@@ -109,6 +109,7 @@ main {
 
 .details {
   margin-top: 58px;
+  margin-bottom: 22px;
   font-size: 14px;
   line-height: 1px;
   min-width: 50px;
@@ -124,17 +125,40 @@ main {
   height: 10px;
 }
 
+.title-forecast {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
 .weekly-forecast {
-  margin: 0 auto;
+  margin-left: 70px;
 }
 
 .forecast {
   font-size: 15px;
-  margin-top: 60px;
+  margin-top: 35px;
   margin-bottom: 18px;
   padding: 0 5px;
 }
+.img-forecast {
+  width: 24px;
+  height: 24px;
+}
 
+hr {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  margin-bottom: 2px;
+  width: 12px;
+}
+
+li {
+  text-align: center;
+  list-style: none;
+  width: 100px;
+}
 .netlify-link,
 .github-link,
 .credits {
@@ -160,6 +184,10 @@ main {
   .location {
     margin-left: 2px;
   }
+
+  .weekly-forecast {
+    margin-left: 20px;
+  }
 }
 
 @media (min-width: 560px) {
@@ -169,7 +197,7 @@ main {
   }
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 768px) {
   main {
     width: 95%;
   }
@@ -188,6 +216,15 @@ main {
     margin-top: 50px;
     margin-left: 2px;
   }
+  .weekly-forecast {
+    margin-left: 10px;
+  }
+  #date {
+    font-size: 15px;
+  }
+  li {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -200,6 +237,10 @@ main {
   body {
     margin: 350px 0 450px;
   }
+
+  .weekly-forecast {
+    margin-left: 50px;
+  }
 }
 
 @media (min-width: 1300px) {
@@ -210,6 +251,13 @@ main {
     width: 90%;
   }
   body {
-    margin: 100px 0;
+    margin: 70px 0;
+  }
+  .weekly-forecast {
+    margin-left: 70px;
+  }
+  .form-control,
+  .btn-secondary {
+    margin-left: 15vw;
   }
 }

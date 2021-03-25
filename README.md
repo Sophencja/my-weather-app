@@ -13,4 +13,4 @@ Languages:
 - JavaScript ES6
 
 Credits:
-Icons made by Good Ware from www.flaticon.com
+Icons made by Good Ware and iconixar from www.flaticon.com
