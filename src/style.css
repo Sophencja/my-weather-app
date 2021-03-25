@@ -156,8 +156,8 @@ li {
 }
 
 .img-forecast {
-  width: 24px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
 }
 
 .netlify-link,
@@ -190,7 +190,7 @@ li {
     margin-left: -20px;
   }
   .forecast {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @media (min-width: 560px) {
@@ -226,7 +226,7 @@ li {
     margin-left: -10px;
   }
   #date {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
