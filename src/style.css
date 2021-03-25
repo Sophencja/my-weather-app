@@ -195,6 +195,10 @@ li {
   .forecast {
     font-size: 15px;
   }
+
+  #date {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 560px) {
