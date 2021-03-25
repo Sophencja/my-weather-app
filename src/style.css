@@ -48,7 +48,6 @@ hr {
 li {
   text-align: center;
   list-style: none;
-  width: 100px;
 }
 
 .town {
@@ -153,7 +152,7 @@ li {
   font-size: 15px;
   margin-top: 35px;
   margin-bottom: 18px;
-  padding: 0 5px;
+  padding: 0;
 }
 
 .img-forecast {
@@ -188,8 +187,10 @@ li {
   }
 
   .weekly-forecast {
-    margin-left: 20px;
+    margin-left: -20px;
   }
+  .forecast {
+  font-size: 14px;
 }
 
 @media (min-width: 560px) {
@@ -208,7 +209,7 @@ li {
     background-position: center;
   }
   li {
-    font-size: 12px;
+    font-size: 13px;
   }
   .details p {
     margin-left: 15px;
@@ -222,7 +223,7 @@ li {
     margin-left: 2px;
   }
   .weekly-forecast {
-    margin-left: 10px;
+    margin-left: -10px;
   }
   #date {
     font-size: 15px;
@@ -237,10 +238,10 @@ li {
     margin: 350px 0 450px;
   }
   .weekly-forecast {
-    margin-left: 50px;
+    margin-left: -15px;
   }
   .details p {
-    margin-left: 50px;
+    margin-left: 70px;
   }
 }
 
@@ -252,7 +253,7 @@ li {
     margin: 70px 0;
   }
   .weekly-forecast {
-    margin-left: 70px;
+    margin-left: -15px;
   }
   .form-control,
   .btn-secondary {
@@ -261,4 +262,6 @@ li {
   .details p {
     margin-left: 90px;
   }
+  .forecast {
+  font-size: 15px;
 }
