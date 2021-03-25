@@ -166,6 +166,10 @@ li {
   font-weight: 700;
 }
 
+#date {
+  font-size: 15px;
+}
+
 @media (min-width: 280px) {
   main {
     width: 95%;
