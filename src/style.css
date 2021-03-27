@@ -51,9 +51,11 @@ li {
 }
 
 .town {
-  margin: 0 auto;
-  padding: 35px 60px 0;
-  font-size: 16px;
+  margin: 0px auto;
+  padding: 25px 60px 5px;
+}
+.towns {
+  font-size: 18px;
 }
 
 .form-control,
@@ -64,6 +66,7 @@ li {
 
 .form-control {
   background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 35px;
 }
 
 .btn-secondary {
@@ -90,6 +93,10 @@ li {
   background-color: rgba(171, 140, 184, 0.6);
   border: solid 1px rgba(40, 17, 51, 0.6);
   transition: 200ms;
+}
+
+.weather-details {
+  margin-top: -15px;
 }
 
 .city,
@@ -146,6 +153,12 @@ li {
   font-weight: 700;
   margin-bottom: 3px;
 }
+.today-forecast {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
 
 .weekly-forecast {
   margin-left: 70px;
@@ -172,6 +185,10 @@ li {
 
 #date {
   font-size: 15px;
+}
+
+#search-form {
+  margin-top: -15px;
 }
 
 @media (min-width: 280px) {
@@ -264,7 +281,7 @@ li {
     width: 90%;
   }
   body {
-    margin: 70px 0;
+    margin: 40px 0;
   }
   .weekly-forecast {
     margin-left: -15px;
