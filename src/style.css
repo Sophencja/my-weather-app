@@ -57,6 +57,14 @@ li {
 
 .towns {
   font-size: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.507);
+  border-radius: 10px;
+  padding: 3px 25px;
+}
+.towns:hover {
+  background-color: rgba(244, 228, 248, 0.418);
+  color: rgb(255, 255, 255);
+  transition: 200ms;
 }
 
 .form-control,
@@ -76,7 +84,7 @@ li {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(171, 140, 184, 0.6);
+  background-color: rgba(244, 228, 248, 0.418);
   border: solid 1px rgba(40, 17, 51, 0.6);
   transition: 200ms;
 }
@@ -91,7 +99,7 @@ li {
 
 .location:hover {
   color: white;
-  background-color: rgba(171, 140, 184, 0.6);
+  background-color: rgba(244, 228, 248, 0.418);
   border: solid 1px rgba(40, 17, 51, 0.6);
   transition: 200ms;
 }
