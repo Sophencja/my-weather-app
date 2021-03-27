@@ -107,16 +107,16 @@ button.addEventListener("click", getCurrentPosition);
 
 //Cities current weather
 
-//New York
-function showPositionNewYork(position) {
-  let city = "New York";
-  let newYorkUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+//Chicago
+function showChicago(position) {
+  let city = "Chicago";
+  let chicagoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
-  axios.get(newYorkUrl).then(currentWeather);
+  axios.get(chicagoUrl).then(currentWeather);
 }
 
-let newYorkButton = document.querySelector("#New-York");
-newYorkButton.addEventListener("click", showPositionNewYork);
+let chicagoButton = document.querySelector("#Chicago");
+chicagoButton.addEventListener("click", showPositionChicago);
 
 //London
 function showPositionLondon(position) {
@@ -140,13 +140,13 @@ function showPositionWarsaw(position) {
 let warsawButton = document.querySelector("#Warsaw");
 warsawButton.addEventListener("click", showPositionWarsaw);
 
-//Hong Kong
-function showPositionHongKong(position) {
-  let city = "Hong Kong";
-  let hongKongUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+//Tokyo
+function showPositionTokyo(position) {
+  let city = "Tokyo";
+  let tokyoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
-  axios.get(hongKongUrl).then(currentWeather);
+  axios.get(tokyoUrl).then(currentWeather);
 }
 
-let hongKongButton = document.querySelector("#Hong-Kong");
-hongKongButton.addEventListener("click", showPositionHongKong);
+let tokyoButton = document.querySelector("#Tokyo");
+tokyoButton.addEventListener("click", showPositionTokyo);
