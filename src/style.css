@@ -116,6 +116,7 @@ li {
 
 .sunny {
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .details {
