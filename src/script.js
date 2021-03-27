@@ -108,7 +108,7 @@ button.addEventListener("click", getCurrentPosition);
 //Cities current weather
 
 //Chicago
-function showChicago(position) {
+function showPositionChicago(position) {
   let city = "Chicago";
   let chicagoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
