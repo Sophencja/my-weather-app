@@ -30,7 +30,7 @@ function dateTime(time) {
   ];
   let currentMonth = months[time.getMonth()];
 
-  return `${day}, ${currentDate} ${currentMonth} </br></br></br> Local time:&nbsp; ${hours}:${minutes}`;
+  return `${day}, ${currentDate} ${currentMonth} </br></br></br> Last updated:&nbsp; ${hours}:${minutes}`;
 }
 let weatherDetails = document.querySelector("#date");
 let time = new Date();
