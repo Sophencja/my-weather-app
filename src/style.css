@@ -139,7 +139,7 @@ li {
 }
 
 .details {
-  margin-top: 58px;
+  margin-top: 50px;
   margin-bottom: 22px;
   font-size: 14px;
   line-height: 1px;
@@ -205,7 +205,7 @@ li {
     width: 95%;
   }
   body {
-    margin: 350px 0 450px;
+    margin: 300px 0 450px;
     background-position: center;
   }
   .details p {
