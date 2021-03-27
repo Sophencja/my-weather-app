@@ -80,8 +80,9 @@ function currentWeather(response) {
   let iconElement = document.querySelector(".img-actual");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `images/${response.data.weather[0].icon}.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "0a4ce0d1bdec8cde4fc9b0bad74a662a";
