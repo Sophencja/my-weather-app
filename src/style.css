@@ -54,6 +54,7 @@ li {
   margin: 0px auto;
   padding: 25px 60px 5px;
 }
+
 .towns {
   font-size: 18px;
 }
@@ -209,14 +210,15 @@ li {
   .location {
     margin-left: 2px;
   }
-
   .weekly-forecast {
     margin-left: -20px;
   }
   .forecast {
     font-size: 15px;
   }
-
+  .towns {
+    font-size: 14px;
+  }
   #date {
     font-size: 14px;
   }
@@ -273,6 +275,9 @@ li {
   }
   .details p {
     margin-left: 70px;
+  }
+  .towns {
+    font-size: 18px;
   }
 }
 
