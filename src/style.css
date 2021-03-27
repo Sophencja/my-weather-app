@@ -116,6 +116,9 @@ li {
 
 .sunny {
   font-size: 20px;
+}
+
+.sunny:first-letter {
   text-transform: capitalize;
 }
 
