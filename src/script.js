@@ -51,6 +51,20 @@ searchForm.addEventListener("submit", searchForCity);
 
 //currentWeather and temperature details
 
+function formatHours(timestamp) {
+  let time = new Date(timestamp);
+  let hours = time.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = time.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function currentWeather(response) {
   celciusTemperature = response.data.main.temp;
 
@@ -94,9 +108,37 @@ function currentWeather(response) {
 let apiKey = "0a4ce0d1bdec8cde4fc9b0bad74a662a";
 let units = "metric";
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li><small>${Math.round(
+                    forecast.main.temp_max
+                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °</small></li>
+                </ul>
+              </div> 
+              `;
+  }
+}
+
 function citySearch(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 citySearch("Warsaw");
@@ -176,55 +218,173 @@ button.addEventListener("click", getCurrentPosition);
 //Cities buttons current weather
 
 //Chicago
+function displayForecastChicago(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li><small>${Math.round(
+                    forecast.main.temp_max
+                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °</small></li>
+                </ul>
+              </div> 
+              `;
+  }
+}
+
 function showPositionChicago(position) {
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   let city = "Chicago";
   let chicagoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(chicagoUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecastChicago);
 }
 
 let chicagoButton = document.querySelector("#Chicago");
 chicagoButton.addEventListener("click", showPositionChicago);
 
+let chicagoForecastButton = document.querySelector("#Chicago");
+chicagoForecastButton.addEventListener("click", displayForecastChicago);
+
 //London
+function displayForecastLondon(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li><small>${Math.round(
+                    forecast.main.temp_max
+                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °</small></li>
+                </ul>
+              </div> 
+              `;
+  }
+}
+
 function showPositionLondon(position) {
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   let city = "London";
   let londonUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(londonUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecastLondon);
 }
 
 let londonButton = document.querySelector("#London");
 londonButton.addEventListener("click", showPositionLondon);
 
+let londonForecastButton = document.querySelector("#London");
+londonForecastButton.addEventListener("click", displayForecastLondon);
+
 //Warsaw
+function displayForecastWarsaw(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li><small>${Math.round(
+                    forecast.main.temp_max
+                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °</small></li>
+                </ul>
+              </div> 
+              `;
+  }
+}
+
 function showPositionWarsaw(position) {
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   let city = "Warsaw";
   let warsawUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(warsawUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecastWarsaw);
 }
 
 let warsawButton = document.querySelector("#Warsaw");
 warsawButton.addEventListener("click", showPositionWarsaw);
 
+let warsawForecastButton = document.querySelector("#Warsaw");
+warsawForecastButton.addEventListener("click", displayForecastWarsaw);
+
 //Tokyo
+function displayForecastTokyo(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li><small>${Math.round(
+                    forecast.main.temp_max
+                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °</small></li>
+                </ul>
+              </div> 
+              `;
+  }
+}
+
 function showPositionTokyo(position) {
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   let city = "Tokyo";
   let tokyoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(tokyoUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecastTokyo);
 }
 
 let tokyoButton = document.querySelector("#Tokyo");
 tokyoButton.addEventListener("click", showPositionTokyo);
 
-//Forecast
+let tokyoForecastButton = document.querySelector("#Tokyo");
+tokyoForecastButton.addEventListener("click", displayForecastTokyo);
