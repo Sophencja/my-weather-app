@@ -40,6 +40,8 @@ weatherDetails.innerHTML = dateTime(time);
 //search engine
 
 function searchForCity(event) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   event.preventDefault();
   let input = document.querySelector("#city-input");
   citySearch(input.value);
