@@ -173,7 +173,7 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-button");
 button.addEventListener("click", getCurrentPosition);
 
-//Cities current weather
+//Cities buttons current weather
 
 //Chicago
 function showPositionChicago(position) {
@@ -226,3 +226,5 @@ function showPositionTokyo(position) {
 
 let tokyoButton = document.querySelector("#Tokyo");
 tokyoButton.addEventListener("click", showPositionTokyo);
+
+//Forecast
