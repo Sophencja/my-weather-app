@@ -50,14 +50,18 @@ searchForm.addEventListener("submit", searchForCity);
 //currentWeather and temperature details
 
 function currentWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
+
+  let temperature = Math.round(celciusTemperature);
   let showTemp = document.querySelector(".defaultTemp");
   showTemp.innerHTML = temperature;
 
   let currentLocation = document.querySelector("#city");
   currentLocation.innerHTML = response.data.name;
 
-  let feelsLike = Math.round(response.data.main.feels_like);
+  feelsLikeTemperature = response.data.main.feels_like;
+
+  let feelsLike = Math.round(feelsLikeTemperature);
   let showfeelsLike = document.querySelector("#feels-like");
   showfeelsLike.innerHTML = `${feelsLike} °C`;
 
@@ -95,9 +99,64 @@ function citySearch(city) {
 
 citySearch("Warsaw");
 
+// conversion to farenheit and celsius
+
+function showFarenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".defaultTemp");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector(".defaultTemp");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
+let farenheitLink = document.querySelector("#fahrenheit");
+farenheitLink.addEventListener("click", showFarenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+// conversion to farenheit and celsius for "feels like"
+
+function showFarenheitTemperatureDetails(event) {
+  event.preventDefault();
+  let temperatureElementDetails = document.querySelector("#feels-like");
+  let farenheitTemperatureDetails = (feelsLikeTemperature * 9) / 5 + 32;
+  temperatureElementDetails.innerHTML = `${Math.round(
+    farenheitTemperatureDetails
+  )} °F`;
+}
+
+let farenheitLinkdetails = document.querySelector("#fahrenheit");
+farenheitLinkdetails.addEventListener("click", showFarenheitTemperatureDetails);
+
+function showCelsiusTemperatureDetails(event) {
+  event.preventDefault();
+  let temperatureElementDetails = document.querySelector("#feels-like");
+  let celsiusTemperatureDetails = feelsLikeTemperature;
+  temperatureElementDetails.innerHTML = `${Math.round(
+    celsiusTemperatureDetails
+  )} °C`;
+}
+
+let celsiusLinkdetails = document.querySelector("#celsius");
+celsiusLinkdetails.addEventListener("click", showCelsiusTemperatureDetails);
+
 //current location button
 
 function showPosition(position) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let currentLocationUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
@@ -116,6 +175,8 @@ button.addEventListener("click", getCurrentPosition);
 
 //Chicago
 function showPositionChicago(position) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let city = "Chicago";
   let chicagoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
@@ -127,6 +188,8 @@ chicagoButton.addEventListener("click", showPositionChicago);
 
 //London
 function showPositionLondon(position) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let city = "London";
   let londonUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
@@ -138,6 +201,8 @@ londonButton.addEventListener("click", showPositionLondon);
 
 //Warsaw
 function showPositionWarsaw(position) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let city = "Warsaw";
   let warsawUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
@@ -149,6 +214,8 @@ warsawButton.addEventListener("click", showPositionWarsaw);
 
 //Tokyo
 function showPositionTokyo(position) {
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let city = "Tokyo";
   let tokyoUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
