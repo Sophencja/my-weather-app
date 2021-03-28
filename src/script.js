@@ -124,9 +124,9 @@ function displayForecast(response) {
                   }.png"/></li>
                   <li><small>${Math.round(
                     forecast.main.temp_max
-                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
       forecast.main.temp_min
-    )} °</small></li>
+    )} °C</small></li>
                 </ul>
               </div> 
               `;
@@ -196,7 +196,57 @@ function showCelsiusTemperatureDetails(event) {
 let celsiusLinkdetails = document.querySelector("#celsius");
 celsiusLinkdetails.addEventListener("click", showCelsiusTemperatureDetails);
 
+// conversion to farenheit and celsius for "forecast" NEED TO BE DONE!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+function showFarenheitForecast(event) {
+  event.preventDefault();
+  let temperatureElementForecast = document.querySelector(".temp-maxmin");
+  let farenheitTemperatureForecast = (feelsLikeTemperature * 9) / 5 + 32;
+  temperatureElementForecast.innerHTML = `${Math.round(
+    farenheitTemperatureForecast
+  )} °F`;
+}
+
+let farenheitLinkForecast = document.querySelector("#fahrenheit");
+farenheitLinkForecast.addEventListener("click", showFarenheitForecast);
+
+function showCelsiusForecast(event) {
+  event.preventDefault();
+  let temperatureElementForecast = document.querySelector(".temp-maxmin");
+  let celsiusTemperatureForecast = feelsLikeTemperature;
+  temperatureElementForecast.innerHTML = `${Math.round(
+    celsiusTemperatureForecast
+  )} °C`;
+}
+
+let celsiusLinkForecast = document.querySelector("#celsius");
+celsiusLinkForecast.addEventListener("click", showCelsiusForecast);
+
 //current location button
+function displayCurrentWeatherForecast(response) {
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col forecast">
+                <ul>
+                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
+                  <li><img class="img-forecast" src="images/${
+                    forecast.weather[0].icon
+                  }.png"/></li>
+                  <li>${Math.round(
+                    forecast.main.temp_max
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+      forecast.main.temp_min
+    )} °C</li>
+                </ul>
+              </div> 
+              `;
+  }
+}
 
 function showPosition(position) {
   celsiusLink.classList.add("active");
@@ -204,8 +254,10 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let currentLocationUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-
   axios.get(currentLocationUrl).then(currentWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayCurrentWeatherForecast);
 }
 
 function getCurrentPosition() {
@@ -214,6 +266,9 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current-button");
 button.addEventListener("click", getCurrentPosition);
+
+let CurrentForecastButton = document.querySelector("#Chicago");
+CurrentForecastButton.addEventListener("click", displayCurrentWeatherForecast);
 
 //Cities buttons current weather
 
@@ -232,11 +287,11 @@ function displayForecastChicago(response) {
                   <li><img class="img-forecast" src="images/${
                     forecast.weather[0].icon
                   }.png"/></li>
-                  <li><small>${Math.round(
+                  <li>${Math.round(
                     forecast.main.temp_max
-                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
       forecast.main.temp_min
-    )} °</small></li>
+    )} °C</li>
                 </ul>
               </div> 
               `;
@@ -277,9 +332,9 @@ function displayForecastLondon(response) {
                   }.png"/></li>
                   <li><small>${Math.round(
                     forecast.main.temp_max
-                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
       forecast.main.temp_min
-    )} °</small></li>
+    )} °C</small></li>
                 </ul>
               </div> 
               `;
@@ -320,9 +375,9 @@ function displayForecastWarsaw(response) {
                   }.png"/></li>
                   <li><small>${Math.round(
                     forecast.main.temp_max
-                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
       forecast.main.temp_min
-    )} °</small></li>
+    )} °C</small></li>
                 </ul>
               </div> 
               `;
@@ -363,9 +418,9 @@ function displayForecastTokyo(response) {
                   }.png"/></li>
                   <li><small>${Math.round(
                     forecast.main.temp_max
-                  )} ° <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
+                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
       forecast.main.temp_min
-    )} °</small></li>
+    )} °C</small></li>
                 </ul>
               </div> 
               `;
