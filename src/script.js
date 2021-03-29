@@ -112,7 +112,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
      <div class="col forecast">
@@ -121,10 +121,11 @@ function displayForecast(response) {
                   <li><img class="img-forecast" src="images/${
                     forecast.weather[0].icon
                   }.png"/></li>
-                  <li class="forecastTemp">${Math.round(
+                 </ul>
+                  <span class="forecast-temp degree">${Math.round(
                     forecast.main.temp
-                  )} °C </li>
-                </ul>
+                  )}</span>
+                  <span class="degree">°</span>
               </div> 
               `;
   }
@@ -149,7 +150,7 @@ function showFarenheitTemperature(event) {
   farenheitLink.classList.add("active");
   let showTemp = document.querySelector(".defaultTemp");
   showTemp.innerHTML = farenheitTemperature;
-  let forecastMax = document.querySelectorAll(".forecastTemp");
+  let forecastMax = document.querySelectorAll(".forecast-temp");
   forecastMax.forEach(function (item) {
     // grabbing the current value to convert
     let currentTemp = item.innerHTML;
@@ -167,7 +168,7 @@ function showCelsiusTemperature(event) {
   farenheitLink.classList.remove("active");
   let showTemp = document.querySelector(".defaultTemp");
   showTemp.innerHTML = Math.round(celciusTemperature);
-  let forecastMax = document.querySelectorAll(".forecastTemp");
+  let forecastMax = document.querySelectorAll(".forecast-temp");
   forecastMax.forEach(function (item) {
     // grabbing the current value to convert
     let currentTemp = item.innerHTML;

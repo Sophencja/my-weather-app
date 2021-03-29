@@ -213,7 +213,11 @@ li {
   width: 30px;
   height: 30px;
 }
-
+.degree {
+  position: relative;
+  bottom: 20px;
+  left: 105px;
+}
 .netlify-link,
 .github-link,
 .credits {
@@ -256,7 +260,10 @@ li {
   .town {
     padding: 25px 25px 10px;
   }
-
+  .degree {
+    bottom: 20px;
+    left: 57px;
+  }
   #date {
     font-size: 15px;
   }
@@ -266,6 +273,10 @@ li {
   .form-control,
   .btn-secondary {
     margin-left: 20vw;
+  }
+  .degree {
+    bottom: 20px;
+    left: 63px;
   }
 }
 
@@ -299,6 +310,10 @@ li {
   #date {
     font-size: 16px;
   }
+  .degree {
+    bottom: 20px;
+    left: 50px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -319,6 +334,10 @@ li {
   }
   .town {
     padding: 25px 60px 10px;
+  }
+  .degree {
+    bottom: 20px;
+    left: 77px;
   }
 }
 
@@ -341,5 +360,9 @@ li {
   }
   .forecast {
     font-size: 15px;
+  }
+  .degree {
+    bottom: 20px;
+    left: 86px;
   }
 }
