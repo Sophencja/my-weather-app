@@ -215,7 +215,7 @@ li {
 }
 .degree {
   position: relative;
-  bottom: 20px;
+  bottom: 18px;
   left: 105px;
 }
 .netlify-link,
@@ -261,7 +261,6 @@ li {
     padding: 25px 25px 10px;
   }
   .degree {
-    bottom: 20px;
     left: 57px;
   }
   #date {
@@ -275,7 +274,6 @@ li {
     margin-left: 20vw;
   }
   .degree {
-    bottom: 20px;
     left: 63px;
   }
 }
@@ -311,7 +309,6 @@ li {
     font-size: 16px;
   }
   .degree {
-    bottom: 20px;
     left: 50px;
   }
 }
@@ -336,7 +333,6 @@ li {
     padding: 25px 60px 10px;
   }
   .degree {
-    bottom: 20px;
     left: 77px;
   }
 }
@@ -362,7 +358,6 @@ li {
     font-size: 15px;
   }
   .degree {
-    bottom: 20px;
     left: 86px;
   }
 }
