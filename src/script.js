@@ -68,9 +68,8 @@ function formatHours(timestamp) {
 function currentWeather(response) {
   celciusTemperature = response.data.main.temp;
 
-  let temperature = Math.round(celciusTemperature);
   let showTemp = document.querySelector(".defaultTemp");
-  showTemp.innerHTML = temperature;
+  showTemp.innerHTML = Math.round(response.data.main.temp);
 
   let currentLocation = document.querySelector("#city");
   currentLocation.innerHTML = response.data.name;
@@ -122,7 +121,9 @@ function displayForecast(response) {
                   <li><img class="img-forecast" src="images/${
                     forecast.weather[0].icon
                   }.png"/></li>
-                  <li>${Math.round(forecast.main.temp)} °C </li>
+                  <li class="forecastTemp">${Math.round(
+                    forecast.main.temp
+                  )} °C </li>
                 </ul>
               </div> 
               `;
@@ -143,19 +144,39 @@ citySearch("Warsaw");
 
 function showFarenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector(".defaultTemp");
+  let farenheitTemperature = Math.round((celciusTemperature * 9) / 5 + 32);
   celsiusLink.classList.remove("active");
   farenheitLink.classList.add("active");
-  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+  let showTemp = document.querySelector(".defaultTemp");
+  showTemp.innerHTML = farenheitTemperature;
+  let forecastMax = document.querySelectorAll(".forecastTemp");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Fahrenheit
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  // to avoid double conversion
+  celsiusLink.addEventListener("click", showCelsiusTemperature);
+  farenheitLink.removeEventListener("click", showFarenheitTemperature);
 }
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector(".defaultTemp");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  let showTemp = document.querySelector(".defaultTemp");
+  showTemp.innerHTML = Math.round(celciusTemperature);
+  let forecastMax = document.querySelectorAll(".forecastTemp");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  // to avoid double conversion
+  celsiusLink.removeEventListener("click", showCelsiusTemperature);
+  farenheitLink.addEventListener("click", showFarenheitTemperature);
 }
 
 let celciusTemperature = null;
@@ -191,32 +212,6 @@ function showCelsiusTemperatureDetails(event) {
 
 let celsiusLinkdetails = document.querySelector("#celsius");
 celsiusLinkdetails.addEventListener("click", showCelsiusTemperatureDetails);
-
-// conversion to farenheit and celsius for "forecast" NEED TO BE DONE!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-function showFarenheitForecast(event) {
-  event.preventDefault();
-  let temperatureElementForecast = document.querySelector(".temp-maxmin");
-  let farenheitTemperatureForecast = (feelsLikeTemperature * 9) / 5 + 32;
-  temperatureElementForecast.innerHTML = `${Math.round(
-    farenheitTemperatureForecast
-  )} °F`;
-}
-
-let farenheitLinkForecast = document.querySelector("#fahrenheit");
-farenheitLinkForecast.addEventListener("click", showFarenheitForecast);
-
-function showCelsiusForecast(event) {
-  event.preventDefault();
-  let temperatureElementForecast = document.querySelector(".temp-maxmin");
-  let celsiusTemperatureForecast = feelsLikeTemperature;
-  temperatureElementForecast.innerHTML = `${Math.round(
-    celsiusTemperatureForecast
-  )} °C`;
-}
-
-let celsiusLinkForecast = document.querySelector("#celsius");
-celsiusLinkForecast.addEventListener("click", showCelsiusForecast);
 
 //current location button
 
