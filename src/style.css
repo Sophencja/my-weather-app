@@ -66,6 +66,7 @@ li {
   border-radius: 10px;
   padding: 3px 25px;
 }
+
 .towns:hover {
   background-color: rgba(244, 228, 248, 0.418);
   color: rgb(255, 255, 255);
@@ -190,6 +191,7 @@ li {
   font-weight: 700;
   margin-bottom: 3px;
 }
+
 .today-forecast {
   text-align: center;
   font-size: 16px;
@@ -218,11 +220,13 @@ li {
   width: 30px;
   height: 30px;
 }
+
 .degree {
   position: relative;
   bottom: 18px;
   left: 105px;
 }
+
 .netlify-link,
 .github-link,
 .credits {
@@ -291,11 +295,9 @@ li {
     margin: 350px 0 450px;
     background-position: center;
   }
-
   li {
     font-size: 13px;
   }
-
   .details p {
     margin-left: 15px;
   }

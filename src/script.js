@@ -152,12 +152,10 @@ function showFarenheitTemperature(event) {
   showTemp.innerHTML = farenheitTemperature;
   let forecastMax = document.querySelectorAll(".forecast-temp");
   forecastMax.forEach(function (item) {
-    // grabbing the current value to convert
     let currentTemp = item.innerHTML;
-    // convert to Fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
-  // to avoid double conversion
+
   celsiusLink.addEventListener("click", showCelsiusTemperature);
   farenheitLink.removeEventListener("click", showFarenheitTemperature);
 }
@@ -170,12 +168,10 @@ function showCelsiusTemperature(event) {
   showTemp.innerHTML = Math.round(celciusTemperature);
   let forecastMax = document.querySelectorAll(".forecast-temp");
   forecastMax.forEach(function (item) {
-    // grabbing the current value to convert
     let currentTemp = item.innerHTML;
-    // convert to Celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
-  // to avoid double conversion
+
   celsiusLink.removeEventListener("click", showCelsiusTemperature);
   farenheitLink.addEventListener("click", showFarenheitTemperature);
 }
