@@ -122,11 +122,7 @@ function displayForecast(response) {
                   <li><img class="img-forecast" src="images/${
                     forecast.weather[0].icon
                   }.png"/></li>
-                  <li><small>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</small></li>
+                  <li>${Math.round(forecast.main.temp)} °C </li>
                 </ul>
               </div> 
               `;
@@ -223,30 +219,6 @@ let celsiusLinkForecast = document.querySelector("#celsius");
 celsiusLinkForecast.addEventListener("click", showCelsiusForecast);
 
 //current location button
-function displayCurrentWeatherForecast(response) {
-  let forecastElement = document.querySelector("#daily-forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col forecast">
-                <ul>
-                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
-                  <li><img class="img-forecast" src="images/${
-                    forecast.weather[0].icon
-                  }.png"/></li>
-                  <li>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</li>
-                </ul>
-              </div> 
-              `;
-  }
-}
 
 function showPosition(position) {
   celsiusLink.classList.add("active");
@@ -256,8 +228,8 @@ function showPosition(position) {
   let currentLocationUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(currentLocationUrl).then(currentWeather);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayCurrentWeatherForecast);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition() {
@@ -267,36 +239,12 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-button");
 button.addEventListener("click", getCurrentPosition);
 
-let CurrentForecastButton = document.querySelector("#Chicago");
-CurrentForecastButton.addEventListener("click", displayCurrentWeatherForecast);
+let buttonShowPosition = document.querySelector("#current-button");
+buttonShowPosition.addEventListener("click", showPosition);
 
 //Cities buttons current weather
 
 //Chicago
-function displayForecastChicago(response) {
-  let forecastElement = document.querySelector("#daily-forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col forecast">
-                <ul>
-                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
-                  <li><img class="img-forecast" src="images/${
-                    forecast.weather[0].icon
-                  }.png"/></li>
-                  <li>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</li>
-                </ul>
-              </div> 
-              `;
-  }
-}
 
 function showPositionChicago(position) {
   celsiusLink.classList.add("active");
@@ -306,40 +254,16 @@ function showPositionChicago(position) {
   axios.get(chicagoUrl).then(currentWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecastChicago);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let chicagoButton = document.querySelector("#Chicago");
 chicagoButton.addEventListener("click", showPositionChicago);
 
 let chicagoForecastButton = document.querySelector("#Chicago");
-chicagoForecastButton.addEventListener("click", displayForecastChicago);
+chicagoForecastButton.addEventListener("click", displayForecast);
 
 //London
-function displayForecastLondon(response) {
-  let forecastElement = document.querySelector("#daily-forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col forecast">
-                <ul>
-                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
-                  <li><img class="img-forecast" src="images/${
-                    forecast.weather[0].icon
-                  }.png"/></li>
-                  <li><small>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</small></li>
-                </ul>
-              </div> 
-              `;
-  }
-}
 
 function showPositionLondon(position) {
   celsiusLink.classList.add("active");
@@ -349,40 +273,16 @@ function showPositionLondon(position) {
   axios.get(londonUrl).then(currentWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecastLondon);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let londonButton = document.querySelector("#London");
 londonButton.addEventListener("click", showPositionLondon);
 
 let londonForecastButton = document.querySelector("#London");
-londonForecastButton.addEventListener("click", displayForecastLondon);
+londonForecastButton.addEventListener("click", displayForecast);
 
 //Warsaw
-function displayForecastWarsaw(response) {
-  let forecastElement = document.querySelector("#daily-forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col forecast">
-                <ul>
-                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
-                  <li><img class="img-forecast" src="images/${
-                    forecast.weather[0].icon
-                  }.png"/></li>
-                  <li><small>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</small></li>
-                </ul>
-              </div> 
-              `;
-  }
-}
 
 function showPositionWarsaw(position) {
   celsiusLink.classList.add("active");
@@ -392,40 +292,16 @@ function showPositionWarsaw(position) {
   axios.get(warsawUrl).then(currentWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecastWarsaw);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let warsawButton = document.querySelector("#Warsaw");
 warsawButton.addEventListener("click", showPositionWarsaw);
 
 let warsawForecastButton = document.querySelector("#Warsaw");
-warsawForecastButton.addEventListener("click", displayForecastWarsaw);
+warsawForecastButton.addEventListener("click", displayForecast);
 
 //Tokyo
-function displayForecastTokyo(response) {
-  let forecastElement = document.querySelector("#daily-forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col forecast">
-                <ul>
-                  <li><b>${formatHours(forecast.dt * 1000)}</b></li>
-                  <li><img class="img-forecast" src="images/${
-                    forecast.weather[0].icon
-                  }.png"/></li>
-                  <li><small>${Math.round(
-                    forecast.main.temp_max
-                  )} °C <img class="img-forecast" src="images/daynight.png"/> ${Math.round(
-      forecast.main.temp_min
-    )} °C</small></li>
-                </ul>
-              </div> 
-              `;
-  }
-}
 
 function showPositionTokyo(position) {
   celsiusLink.classList.add("active");
@@ -435,11 +311,11 @@ function showPositionTokyo(position) {
   axios.get(tokyoUrl).then(currentWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecastTokyo);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let tokyoButton = document.querySelector("#Tokyo");
 tokyoButton.addEventListener("click", showPositionTokyo);
 
 let tokyoForecastButton = document.querySelector("#Tokyo");
-tokyoForecastButton.addEventListener("click", displayForecastTokyo);
+tokyoForecastButton.addEventListener("click", displayForecast);

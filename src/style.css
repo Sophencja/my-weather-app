@@ -194,6 +194,7 @@ li {
 
 .weekly-forecast {
   margin-left: 70px;
+  height: 150px;
 }
 
 .forecast {
@@ -209,8 +210,8 @@ li {
 }
 
 .img-forecast {
-  width: 21px;
-  height: 21px;
+  width: 30px;
+  height: 30px;
 }
 
 .netlify-link,
