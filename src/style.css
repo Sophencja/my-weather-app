@@ -261,7 +261,7 @@ li {
     padding: 25px 25px 10px;
   }
   .degree {
-    left: 57px;
+    left: 45px;
   }
   #date {
     font-size: 15px;
@@ -274,7 +274,7 @@ li {
     margin-left: 20vw;
   }
   .degree {
-    left: 63px;
+    left: 49px;
   }
 }
 
@@ -333,7 +333,7 @@ li {
     padding: 25px 60px 10px;
   }
   .degree {
-    left: 77px;
+    left: 62px;
   }
 }
 
@@ -358,6 +358,6 @@ li {
     font-size: 15px;
   }
   .degree {
-    left: 86px;
+    left: 65px;
   }
 }
